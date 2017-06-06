@@ -1,0 +1,214 @@
+body {
+		background: #fff;	
+    font-family: 'Montserrat', sans-serif;		
+}
+
+.container-fluid {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+header {
+		background: #f5f7fd;
+}
+.navbar-ffp {
+	background: #f5f7fd;
+}
+img.responsive {
+	width: 100%;
+}
+
+.navbar-toggle .icon-bar {
+	background: #505050;
+}
+
+.navbar a {
+	color: #404040;
+    font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+.wrap h1 {
+	font-size: 1.4em;	
+}
+.featured {
+	background: #f6f5f1;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+.hilite .row {
+	background: #f5f7fd;
+}
+.hilite img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+.hilite .kiri {
+	background: #ccc;	
+}
+.submisi {
+	background: #cd283f;
+	color: #fff;
+	padding: 40px 20px;
+}
+
+img.object-fit_contain { object-fit: cover; }
+
+.submisi > .btn-default {
+	color: #f22541;
+}
+.jadwal {
+	padding: 5px 20px;
+	background: #f5f7fd;	
+}
+.jadwal h1 {
+	font-size: 14px;
+	color: #404040;
+	display: block;
+	border-bottom: solid 1px #d4d7de;
+	padding-bottom: 15px;
+}
+.tanggal {
+	font-size: 12px;
+}
+.judul {
+	font-size: 18px;
+}
+.caption {
+	position: absolute;
+	bottom: 15px;
+	padding: 0 10px;
+}
+
+.utama {
+	padding: 0;
+	height: 210px;
+	}
+.utama-2 {
+	padding: 0;
+	height: 210px;
+	}	
+}
+
+.utama, .utama-2 {
+	position: relative;
+}
+.utama h3, .utama-2 h3 {
+	margin: 0;
+	color:#fff;
+	font-size: 0.8em;
+}
+.utama h1 {
+	margin: 0;
+	color:#fff;
+	font-size: 1.5em;
+}
+.utama-2 h1 {
+	margin: 0;
+	color:#fff;
+	font-size: 1.3em;
+}
+.btn-default-2 {
+	width: 100%;
+  border-radius: 2px;
+  background-color: #f4f4f4;
+  border: solid 1px #e6e6e6;
+  color: #5b5b5b;
+  font-size: 0.9em;
+  padding: 10px 0;
+}
+
+h1.judul {
+	font-size: 1.5em;
+	font-weight: bold;
+    color: #b7b7b7;	
+}
+
+
+.isi-konten h3 {
+	color: #aeaeae;
+	font-size:1.3em;
+	margin: 5px 0;
+}
+.frame img {
+	height: 100%;
+}
+
+.frame h1 {
+	color:#aeaeae;
+	font-size:0.3em;
+	text-align: left;
+	margin: 15px 0;
+}
+.konten {
+	margin-top: 30px;
+	background: url('../img/ornament.png') no-repeat bottom left;
+}
+.kartu {
+	margin-top: 30px;
+}
+.isi-konten h5{
+	margin: 0;
+}
+h1.judul-artikel {
+	font-size: 1.7em;
+	margin: 0;
+	line-height: 1.2em;
+}
+.detail {
+	margin-bottom: 60px;
+}
+.slide-contain {
+		overflow: hidden !important;
+}
+.slide-contain-parent {
+		position: relative !important;
+}
+.slider-card {
+	white-space: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+}
+.bread {
+	  height: 40px;
+	  background-color: #fafafc;
+	  padding: 10px 0;
+	  font-size: 0.8em;
+	  color: #c2c2c2;
+}
+footer {
+	  background-color: #f7f7f7;
+	  padding: 50px 0;
+}
+footer p {
+	color: #9d9d9d;
+	font-size: 0.9em;
+}
+.btn-default-3 {
+	font-size: 0.7em;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+@media only screen and (min-width:1085px) {
+	.navbar {
+		margin-bottom: 3px;
+	}
+}
+
+@media only screen and (min-width:768px) {
+.utama {
+	padding: 0;
+	height: 300px;
+	}
+.utama img {
+	height: 300px;
+}	
+.utama-2 {
+	padding: 0;
+	height: 260px;
+	}	
+.utama-2 img {
+	height: 260px;
+}	
+}

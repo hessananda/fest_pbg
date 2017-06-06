@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^beranda.html$ index.php [L]
+RewriteRule ^jadwal.html$ jadwal.php [L]
+RewriteRule ^program.html$ program.php [L]
+RewriteRule ^kompetisi.html$ kompetisi.php [L]
+RewriteRule ^juri.html$ juri.php [L]
+RewriteRule ^arsip.html$ arsip.php [L]
+RewriteRule ^tentang.html$ tentang.php [L]
+
+RewriteRule ^detail-(.*)-(.*)-(.*).html$ detail.php?category=$1&id=$2&title=$3 [L]
+
+</IfModule>
