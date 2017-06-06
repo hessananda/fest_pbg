@@ -64,12 +64,14 @@
 								<tr>
 									<th>No</th>									
 									<th>Full Name</th>
+									<th>Kategori Juri</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
-									$query = mysqli_query($con,"SELECT a.* FROM ".$soalapa." a ORDER BY id DESC");
+									$query = mysqli_query($con,"SELECT a.*, b.title category_name FROM ".$soalapa." a
+																INNER JOIN kategori_juri b ON a.category_id = b.id ORDER BY id DESC");
 									$no = 1;
 									while ($satuan = mysqli_fetch_assoc($query)) {
 										?>
@@ -89,13 +91,11 @@
 											</div><!-- /.modal-content -->
 										  </div><!-- /.modal-doalog -->
 										</div><!-- /#DefaultModal -->
-
-										<?php
-
-										?>
+										
 										<tr class="odd gradeX">
 											<td width="5%"><?php echo $no ?></td>                                       
-											<td width="60%"><?php echo $satuan['title'] ?></td>											
+											<td width="60%"><?php echo $satuan['title'] ?></td>
+											<td width="15%"><?php echo $satuan['category_name'] ?></td>										
 											<td width="20%">
 											<a href="<?php echo $page ?>_edit.php?id=<?php echo $satuan['id'] ?>">Edit</a> / <a data-toggle="modal" data-target="#DefaultModal<?php echo $no ?>" href="#" >Hapus</a></td>
 										</tr>

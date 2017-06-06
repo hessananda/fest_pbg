@@ -40,33 +40,40 @@
 	<div class="col-xs-12">
 	
 	  <div class="wrap" style="margin-top: 0;">
-  <h1><strong>Dewan Juri</strong></h1>
-  <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h3>
-  <div class="frame" id="basic">
-    <ul class="clearfix">
-
 <?php
-  $sql = "SELECT * FROM master_juri";
+  $sql = "SELECT a.id, a.title, a.description FROM kategori_juri a 
+          INNER JOIN master_juri b ON a.id = b.category_id
+          WHERE a.aktif = '1' 
+          GROUP BY a.id";
   $query = mysqli_query($con,$sql) ;
   while ($satuan = mysqli_fetch_assoc($query)) {
-?>
-    <li>
-    <a href="detail-juri-<?=$satuan['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan['title'])) ?>.html">
-    <img src="images/juri/<?php echo $satuan['image_banner'] ?>" class="object-fit_contain responsive">
-    </a>
-    <a href="detail-juri-<?=$satuan['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan['title'])) ?>.html">
-    <h1><?php echo $satuan['title'] ?></h1></li>
-    </a>
-<?php   
-  }  
-
-?>          
+?>  
+  <h1><strong><?php echo $satuan['title'] ?></strong></h1>
+  <h3><?php echo $satuan['description'] ?></h3>
+  <div class="frame" id="basic">
+    <ul class="clearfix">
+    <?php
+    $sql1 = "SELECT * FROM master_juri WHERE category_id = '$satuan[id]' ";
+    $query1 = mysqli_query($con,$sql1) ;
+    while ($satuan1 = mysqli_fetch_assoc($query1)) {
+    ?>    
+      <li>
+          <a href="detail-juri-<?=$satuan1['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan1['title'])) ?>.html">
+          <img src="images/juri/<?php echo $satuan1['image_banner'] ?>" class="object-fit_contain responsive">
+          </a>
+          <a href="detail-juri-<?=$satuan1['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan1['title'])) ?>.html">
+          <h1><?php echo $satuan1['title'] ?></h1>
+          </a>
+      </li>
+    
+    <?php
+    }
+    ?>
     </ul>
-	</div>
-  
- 
-
-
+  </div>
+<?php
+}
+?>
 </div>		
     </div>	
 	</div>	

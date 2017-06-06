@@ -53,7 +53,7 @@
 						
 							<fieldset>
 								<legend>Edit <?php echo $menu_title ?></legend>
-									
+							<?php combobox_update('Kategori','category','SELECT * from kategori_juri ', 'id', 'title', 'SELECT category_id FROM '.$soalapa.' WHERE id = '.$id.' ', 'id', 'category_id') ?>		
                             <?php textbox_update('Full Name','full_name',$satuan['title']) ?>
                             <?php file_gambar_update('../images/juri/',$satuan['image_banner'],'file','english') ?>
 							<?php textarea_summernote_update('Description','description',$satuan['content']) ?>                            			                                   

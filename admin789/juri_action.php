@@ -30,6 +30,7 @@ elseif ($action=='edit')
 
 	$query = "UPDATE ".$master." SET 
 			 title = '$full_name',
+			 category_id = '$_POST[category]',
              content = '$description'        
 			 WHERE id = '$id'";
 
@@ -58,7 +59,8 @@ elseif ($action=='input')
  				 '',
  				 '$full_name',
                  '$nama_final',
-                 '$description'
+                 '$description',
+                 '$_POST[kategori]'
  				  ) ") 	;
  
  header("location:".$page."_view.php");

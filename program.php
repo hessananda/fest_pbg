@@ -39,28 +39,18 @@
 	<div class="row">
 	<div class="col-xs-12">
 	
-	  <div class="wrap" style="margin-top: 0;">
-          <h1><strong>Program</strong></h1>
-
-    <?php
-      $sql = "SELECT a.id, a.title, a.description FROM kategori_program a 
-              INNER JOIN master_program b ON a.id = b.category_id
-              WHERE a.aktif = '1' 
-              GROUP BY a.id";
-      $query = mysqli_query($con,$sql) ;
-      while ($satuan = mysqli_fetch_assoc($query)) {
-    ?>  
-      <h3><?php echo $satuan['description'] ?></h3>
-      <div class="frame" id="<?php echo $satuan['id'] ?>">
+	  <div class="wrap" style="margin-top: 0;">      
+      
+      <div class="frame" id="basic">
         <ul class="clearfix">
         <?php
-        $sql1 = "SELECT * FROM master_program WHERE aktif = '1' AND category_id = '$satuan[id]' ";
+        $sql1 = "SELECT a.* FROM kategori_program a WHERE a.aktif = '1' ";
         $query1 = mysqli_query($con,$sql1) ;
         while ($satuan1 = mysqli_fetch_assoc($query1)) {
         ?>
         <li>
           <a href="detail-program-<?=$satuan1['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan1['title'])) ?>.html">
-          <img src="images/program/<?php echo $satuan1['image_banner'] ?>" class="object-fit_contain responsive">
+          <img src="images/kategori_program/<?php echo $satuan1['image_banner'] ?>" class="object-fit_contain responsive">
           </a>
           <a href="detail-program-<?=$satuan1['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan1['title'])) ?>.html">
           <h1><?php echo $satuan1['title'] ?></h1>
@@ -71,9 +61,7 @@
         ?>
         </ul>
       </div>
-    <?php
-    }
-    ?>
+    
 </div>		
     </div>	
 	</div>	

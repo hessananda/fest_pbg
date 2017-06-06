@@ -46,7 +46,8 @@
 						<form id="myForm" method="post" action="<?php echo $page ?>_action.php?action=input" class="form-horizontal" enctype="multipart/form-data" >
 						
 							<fieldset>
-								<legend id="result"></legend>                     
+								<legend id="result"></legend>    
+								<?php combobox('Kategori','kategori','SELECT * from kategori_juri WHERE aktif = 1  ORDER BY title ', 'id','title')?>                 
 								<?php textbox("Full Name","full_name","") ?>
 								<?php file_input("Image","file","masukan file gambar disini") ?>														
                                 <?php textarea_summernote("Description", "description", "") ?>
