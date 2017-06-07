@@ -135,12 +135,67 @@ if($category_name=='film'){
 		
 		?>
 		</div>
+		
+		<?php
+if ($category_name=='program'){
+?>
+	<div class="col-xs-12 hidden-xs" style="padding-top:40px;">
+			<?php
+			  $sql = "SELECT * FROM kategori_program WHERE parent_id = '$satuan[id]'  ";
+			  $query = mysqli_query($con,$sql) ;
+			  $count = mysqli_num_rows($query);
+if ($count>0) {
+
+			    $sql = "SELECT * FROM kategori_program WHERE parent_id = '$satuan[id]'  ";
+			  	$query = mysqli_query($con,$sql) ;
+			    while ($satuan = mysqli_fetch_assoc($query)) {
+			?>
+			    <div class="col-sm-3 program-lg">
+			    <a href="detail-program-<?=$satuan['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan['title'])) ?>.html">
+			    <img src="images/kategori_program/<?php echo $satuan['image_banner'] ?>" class="object-fit_contain responsive">
+			    </a>
+			    <a href="detail-program-<?=$satuan['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan['title'])) ?>.html">
+			    <h3><?php echo $satuan['title'] ?></h3>
+			    </a>
+				</div>
+				
+			<?php
+			  }
+			?>
+<?php	
+}
+else{
+
+  				$sql = "SELECT * FROM master_film WHERE category_id = '$satuan[id]'  ";
+			  	$query = mysqli_query($con,$sql) ;
+			    while ($satuan = mysqli_fetch_assoc($query)) {
+			?>
+			    <div class="col-sm-3 program-lg">
+			    <a href="detail-film-<?=$satuan['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan['judul'])) ?>.html">
+			    <img src="images/film/<?php echo $satuan['image_banner'] ?>" class="object-fit_contain responsive">
+			    </a>
+			    <a href="detail-film-<?=$satuan['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan['judul'])) ?>.html">
+			    <h3><?php echo $satuan['judul'] ?></h3>
+			    </a>
+				</div>
+			<?php
+			  }
+			?>
+<?php
+}
+?>     
+		</div>
+<?php
+}
+?>	
+		
 	</div>
 
 <?php
 if ($category_name=='program'){
 ?>
-	<div class="row">
+	<div class="row visible-xs">
+	<div class="col-xs-12">
 		<div class="wrap" style="margin-top: 0;">			  
 			  <div class="frame" id="basic">
 			    <ul class="clearfix">
@@ -161,6 +216,7 @@ if ($count>0) {
 			    <a href="detail-program-<?=$satuan['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan['title'])) ?>.html">
 			    <h1><?php echo $satuan['title'] ?></h1></li>
 			    </a>
+				
 			<?php
 			  }
 			?>
@@ -188,6 +244,7 @@ else{
 			    </ul>
 			</div>			  			 
 		</div>		
+		</div>
 	</div>
 <?php
 }

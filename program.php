@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Festival Film Purbalingga 2017</title>
+    <title>Program Festival Film Purbalingga 2017</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -37,14 +37,14 @@
 	</div>
 	<div class="container-fluid konten isi-konten detail">
 	<div class="row">
-	<div class="col-xs-12">
+	<div class="col-xs-12 visible-xs">
 	
 	  <div class="wrap" style="margin-top: 0;">      
-      
+      <h1>Program Festival</h1>
       <div class="frame" id="basic">
         <ul class="clearfix">
         <?php
-        $sql1 = "SELECT a.* FROM kategori_program a WHERE a.aktif = '1' ";
+        $sql1 = "SELECT a.* FROM kategori_program a WHERE a.aktif = '1' AND parent_id = '999' ";
         $query1 = mysqli_query($con,$sql1) ;
         while ($satuan1 = mysqli_fetch_assoc($query1)) {
         ?>
@@ -62,8 +62,31 @@
         </ul>
       </div>
     
-</div>		
-    </div>	
+		</div>		
+    </div>		
+			<div class="col-xs-12 hidden-xs">
+	  <div class="wrap" style="margin-top: 0;">      
+      <h1>Program Festival</h1>
+	  
+        <?php
+        $sql1 = "SELECT a.* FROM kategori_program a WHERE a.aktif = '1' AND parent_id = '999' ";
+        $query1 = mysqli_query($con,$sql1) ;
+        while ($satuan1 = mysqli_fetch_assoc($query1)) {
+        ?>
+        <div class="col-sm-3 program-lg">
+          <a href="detail-program-<?=$satuan1['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan1['title'])) ?>.html">
+          <img src="images/kategori_program/<?php echo $satuan1['image_banner'] ?>" class="object-fit_contain responsive">
+          </a>
+          <a href="detail-program-<?=$satuan1['id']?>-<?= str_replace($cari,$ganti, strtolower($satuan1['title'])) ?>.html">
+          <h3><?php echo $satuan1['title'] ?></h3>
+          </a>
+        </div>
+        <?php
+        }
+        ?>      
+    
+		</div>		
+    </div>
 	</div>	
 	
 	</div>

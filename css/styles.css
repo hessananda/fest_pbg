@@ -17,6 +17,16 @@ header {
 img.responsive {
 	width: 100%;
 }
+.program-lg {
+	padding: 0 3px;
+	height: 350px;
+}
+.program-lg img {
+	height: 250px;
+}
+.program-lg h1 {
+	margin: 5px;
+}
 
 .navbar-toggle .icon-bar {
 	background: #505050;
@@ -43,6 +53,11 @@ img.responsive {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
+.hilite img:hover {
+    -webkit-filter: none; /* Safari 6.0 - 9.0 */
+    filter: none;
+}
+
 .hilite .kiri {
 	background: #ccc;	
 }
@@ -177,7 +192,7 @@ h1.judul-artikel {
 	  color: #c2c2c2;
 }
 footer {
-	  background-color: #f7f7f7;
+	  background-color: #f6f5f1;
 	  padding: 50px 0;
 }
 footer p {

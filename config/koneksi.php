@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set("Asia/Jakarta");
 
-$host = 'localhost:3307';
+$host = 'localhost';
 $username = 'root';
 $password = '';
 $database = 'ffp';
