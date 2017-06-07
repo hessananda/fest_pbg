@@ -69,7 +69,7 @@
 											?>
 											<option <?php echo $satuan['category_id']==$kece['id']?'selected':'' ?> value="<?php echo $kece['id']?>"><?php echo $kece['title'] ?></option>
 											<?php
-											} ?>										
+											} ?>
 										</select>
 									</div>
 							</div>

@@ -1,6 +1,8 @@
 <?php
 	include('config/koneksi.php');
 	include('config/Html_library.php');
+	include('config/form_maker.php');
+
 	session_start();
 	$html = new Html_library;
 	$soalapa = "program_layout";
@@ -45,7 +47,7 @@
 					
 					<?php
 						$id = $_GET['id'];
-						$layout = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM ".$soalapa." WHERE id = '$id' ")); 
+						$layout = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM master_program a INNER JOIN program_layout b ON a.id = b.master_id WHERE b.id = '$id' ")); 
 					?>
 
 				<div class="the-box">
@@ -54,24 +56,13 @@
 							<fieldset>
 								<legend>Pilih <?php echo $tentang ?> untuk <?php echo $menu_title ?> Urutan ke  <?php echo $layout['urutan'] ?> </legend>
 
-								<div class="form-group">
-									<label class="col-lg-3 control-label">Pilih <?php echo $tentang ?> <p> (hanya yang aktif) </p></label>
-									<div class="col-lg-5">
-										<select name="<?php echo $soalapa ?>_tamu_id" id="sticky">
-										
-										<?php 	$event = mysqli_fetch_assoc(mysqli_query($con,"SELECT title, id FROM ".$tabel." WHERE id = '$layout[master_id]' "));  ?>																		
-<?php 												
-										$event_query = mysqli_query($con,"SELECT title, id FROM master_program WHERE aktif = '1' ORDER BY title ASC");  
-										while ( $event_loop = mysqli_fetch_assoc($event_query) ) { ?>
-											<option <?php echo $event_loop['id']==$event['id']?"selected":""  ?> value="<?php echo $event_loop['id'] ?>"><?php echo $event_loop['title'] ?></option>
-<?php
-										}
-?>										
+								<div class="form-group">									
 								
-								</select>
-								
-									</div>
-								</div>																
+							<?php file_gambar_update('../images/program/',$layout['image_banner'],'file','english') ?>					
+                            <?php textbox_update('Title','title',$layout['title']) ?>
+							<?php textbox_update("Link","link",$layout['content']) ?>
+
+								</div>
 
 							</fieldset>
 

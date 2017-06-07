@@ -50,8 +50,7 @@
 				<div class="row">
 				<div class="col-xs-12 col-sm-8 kiri">
 <?php
-	$sql = "SELECT a.*,c.category category FROM master_program a 
-	INNER JOIN kategori_program b ON a.category_id = b.id 
+	$sql = "SELECT a.* FROM master_program a	
 	INNER JOIN program_layout c ON a.id = c.master_id
 	WHERE c.urutan = '1' ";
 	$query = mysqli_query($con,$sql);
@@ -61,14 +60,14 @@
 										<div class="col-xs-12 utama">
 										<img src="images/program/<?php echo $satuan['image_banner'] ?>" class="object-fit_contain responsive">
 										<div class="caption">
-										<h3><?php echo $satuan['category'] ?></h3>
+										<a href="<?php echo $satuan['content'] ?>" target="_blank" >
 										<h1><?php echo $satuan['title'] ?></h1>
+										</a>
 										</div>
 										</div>
 										</div>
 <?php
-	$sql = "SELECT a.*,c.category category FROM master_program a 
-	INNER JOIN kategori_program b ON a.category_id = b.id 
+	$sql = "SELECT a.* FROM master_program a	
 	INNER JOIN program_layout c ON a.id = c.master_id
 	WHERE c.urutan = '2' ";
 	$query = mysqli_query($con,$sql);
@@ -78,13 +77,13 @@
 										<div class="col-xs-12 col-sm-6 utama-2">
 										<img src="images/program/<?php echo $satuan['image_banner'] ?>" class="object-fit_contain responsive">
 										<div class="caption">
-										<h3><?php echo $satuan['category'] ?></h3>
+										<a href="<?php echo $satuan['content'] ?>" target="_blank" >									
 										<h1><?php echo $satuan['title'] ?></h1>
+										</a>
 										</div>
 										</div>
 <?php
-	$sql = "SELECT a.*,c.category category FROM master_program a 
-	INNER JOIN kategori_program b ON a.category_id = b.id 
+	$sql = "SELECT a.* FROM master_program a 	
 	INNER JOIN program_layout c ON a.id = c.master_id
 	WHERE c.urutan = '3' ";
 	$query = mysqli_query($con,$sql);
@@ -93,11 +92,12 @@
 										<div class="col-xs-12 col-sm-6 utama-2">
 										<img src="images/program/<?php echo $satuan['image_banner'] ?>" class="object-fit_contain responsive">
 										<div class="caption">
-										<h3><?php echo $satuan['category'] ?></h3>
+										<a href="<?php echo $satuan['content'] ?>" target="_blank" >
 										<h1><?php echo $satuan['title'] ?></h1>
+										</a>
 										</div>
 										</div>
-										</div>											
+										</div>
 				</div>		
 <?php
 	$sql = "SELECT a.* FROM description a WHERE a.id = '2' ";
